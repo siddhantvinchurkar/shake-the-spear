@@ -13,7 +13,7 @@ from tensorflow.contrib.cluster_resolver import TPUClusterResolver
 TPU_WORKER = TPUClusterResolver(
     tpu=[os.environ['TPU_NAME']]).get_master()
 
-SHAKESPEARE_TXT = 'shakespeare.txt'
+SHAKESPEARE_TXT = 'shakespeare1.txt'
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -95,7 +95,7 @@ prediction_model.load_weights('/tmp/bard.h5')
 
 # We seed the model with our initial string, copied BATCH_SIZE times
 
-seed_txt = 'Looks it not like the king?  Verily, we must go! '
+seed_txt = 'ಚರಣ ಚಾರುಚರಿತ್ರ ನಿರುಪಮ ಭಾಳಶಿಖಿನೇತ್ರ'
 seed = transform(seed_txt)
 seed = np.repeat(np.expand_dims(seed, 0), BATCH_SIZE, axis=0)
 
